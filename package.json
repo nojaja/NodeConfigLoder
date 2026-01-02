@@ -4,7 +4,7 @@
   "description": "設定ファイル読み込みライブラリ",
   "main": "dist/configloder.bundle.js",
   "bin": {
-    "configtool": "dist/configtool.bundle.js"
+    "configtool": "dist/conftool.bundle.js"
   },
   "scripts": {
     "test": "cross-env NODE_ENV=test webpack && jest",
@@ -22,10 +22,10 @@
   "homepage": "https://github.com/nojaja/NodeConfigLoder#readme",
   "devDependencies": {
     "@nojaja/pathutil": "^1.0.3",
-    "babel-jest": "^29.0.0",
+    "babel-jest": "^29.7.0",
     "commander": "^8.3.0",
     "cross-env": "^7.0.3",
-    "jest": "^29.0.0",
+    "jest": "^29.7.0",
     "js-yaml": "^4.1.0",
     "log4js": "^6.9.1",
     "object-path": "^0.11.8",

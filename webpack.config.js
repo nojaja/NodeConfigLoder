@@ -15,7 +15,7 @@ module.exports = {
     'configloder': './configloder/ConfigLoder.js',
     'serializer': './configloder/Serializer.js',
     'finddifferences': './configloder/FindDifferences.js',
-    'configtool': './tools/index.js',
+    'conftool': './tools/index.js',
   },
   output: {
     filename: '[name].bundle.js',
