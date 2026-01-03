@@ -1,7 +1,11 @@
-const src = __dirname + "/src"
-const dist = __dirname + "/dist"
+const path = require('path');
 const webpack = require('webpack');
-const version = JSON.stringify(require('./package.json').version);
+const fs = require('fs');
+
+const src = path.join(__dirname, "src");
+const dist = path.join(__dirname, "dist");
+const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
+const version = JSON.stringify(packageJson.version);
 
 module.exports = {
   mode: 'development',
@@ -12,24 +16,34 @@ module.exports = {
   },
   context: src,
   entry: {
-    'configloder': './configloder/ConfigLoder.js',
-    'serializer': './configloder/Serializer.js',
-    'finddifferences': './configloder/FindDifferences.js',
-    'conftool': './tools/index.js',
+    'configloder': './configloder/ConfigLoder.ts',
+    'serializer': './configloder/Serializer.ts',
+    'finddifferences': './configloder/FindDifferences.ts',
+    'conftool': './tools/index.ts',
   },
   output: {
     filename: '[name].bundle.js',
     sourceMapFilename: './map/[id].[chunkhash].js.map',
     chunkFilename: './chunk/[id].[chunkhash].js',
-    path: dist,
+    path: path.resolve(__dirname, 'dist'),
     publicPath:"",
-    libraryExport: 'default',
-    libraryTarget: 'umd',
-    library: 'configloder'
+    library: {
+      name: 'configloder',
+      type: 'umd',
+      export: 'default'
+    },
   },
   module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
   },
   resolve: {
+    extensions: ['.ts', '.js'],
     modules: ['node_modules']
   },
   plugins: [
@@ -40,4 +54,4 @@ module.exports = {
       banner: '#!/usr/bin/env node', raw: true
     })
   ]
-}
+};

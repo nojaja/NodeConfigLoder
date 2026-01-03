@@ -427,6 +427,75 @@ cryptokey: a1b2c3d4e5f6...
 process statistics - Execution time: 0s 45.123ms, memoryUsage: {"rss":"45.23MB","heapTotal":"32.45MB","heapUsed":"15.67MB",...}
 ```
 
+## Quality Baseline
+
+本プロジェクトは以下の品質基準を満たしています。
+
+### Code Standards
+- **言語**: TypeScript 5.4.5（strict mode）
+- **モジュール形式**: ESM（ES2020）
+- **型カバレッジ**: 100%（`any` 禁止）
+- **ドキュメント**: JSDoc（@param {type}, @returns {type} 必須）
+
+### Linting & Code Quality
+- **Linter**: ESLint 8.54.0（Flat-config）
+  - @typescript-eslint/eslint-plugin 6.17.0
+  - eslint-plugin-sonarjs（Cognitive Complexity ≤10）
+  - eslint-plugin-jsdoc（JSDoc validation）
+- **Lint Status**: ✅ 0 errors（`npm run lint`）
+
+### Testing
+- **Framework**: Jest 29.7.0 + ts-jest 29.1.1
+- **Test Count**: 27 unit tests
+- **Coverage**:
+  - ✅ Statements: 93.38%
+  - ✅ **Branches: 85.71%** (target: ≥80%)
+  - ✅ Functions: 100%
+  - ✅ Lines: 93.18%
+- **Command**: `npm test`
+
+### Dependency Management
+- **Tool**: dependency-cruiser
+- **Status**: ✅ No violations（17 modules, 24 dependencies）
+- **Command**: `npm run depcruise`
+
+### Build & Bundling
+- **Bundler**: Webpack 5.97.1
+- **Entry Points**: 4 bundles (configloder, conftool, serializer, finddifferences)
+- **Output**: dist/（1.87 MB）
+- **Command**: `npm run build`
+
+### Quality Gate (Phase 6)
+全ての品質ゲートが PASS 状態です：
+
+| Gate | Command | Status | Details |
+|------|---------|--------|---------|
+| Build | `npm run build` | ✅ PASS | Webpack compilation successful |
+| Lint | `npm run lint` | ✅ PASS | 0 errors, warnings only |
+| Test | `npm test` | ✅ PASS | 27/27 tests, 85.71% branch coverage |
+| Deps | `npm run depcruise` | ✅ PASS | No violations found |
+
+### Setup & Commands
+```bash
+# 開発環境セットアップ
+npm install
+
+# 開発サーバ起動
+npm run build
+
+# テスト実行
+npm test
+
+# Lint 実行
+npm run lint
+
+# 依存関係検証
+npm run depcruise
+
+# ドキュメント生成（設定のみ、手動実行時に `-g typedoc` が必要）
+npm run docs
+```
+
 ## License & Author
 
 - **License**: MIT License © 2025 nojaja
