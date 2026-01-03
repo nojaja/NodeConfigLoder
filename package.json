@@ -1,8 +1,22 @@
 {
   "name": "nodeconfigloder",
   "version": "1.0.0",
-  "description": "設定ファイル読み込みライブラリ",
+  "description": "Flexible configuration file loader with support for multiple formats including JSON, YAML, and JavaScript",
+  "keywords": [
+    "config",
+    "configuration",
+    "loader",
+    "json",
+    "yaml",
+    "cli"
+  ],
   "main": "dist/configloder.bundle.js",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "bin": {
     "configtool": "dist/conftool.bundle.js"
   },
