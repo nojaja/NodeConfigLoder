@@ -1,6 +1,6 @@
 {
   "name": "nodeconfigloder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flexible configuration file loader with support for multiple formats including JSON, YAML, and JavaScript",
   "keywords": [
     "config",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.23.0",
     "@eslint/js": "^8.54.0",
-    "@nojaja/pathutil": "^1.0.3",
+    "@nojaja/pathutil": "^1.0.6",
     "@types/jest": "^29.5.8",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.10.6",
